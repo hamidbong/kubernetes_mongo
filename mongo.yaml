@@ -40,3 +40,8 @@ metadata:
 spec:
   selector:
     app: mongodb
+  ports:
+  - protocol: TCP
+    port: 27017
+    targetPort: 27017
+  
