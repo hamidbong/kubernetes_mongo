@@ -34,5 +34,5 @@ spec:
         - name: ME_CONFIG_MONGODB_SERVER
           valueFrom:
             configMapKeyRef:
-              name: mongodb-service
+              name: ongodb-configmap
               key: database_url
