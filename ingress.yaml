@@ -4,22 +4,14 @@ kind: Ingress
 metadata:
   name: mongo-ingress
   annotations:
-    # For NGINX Ingress Controller
     nginx.ingress.kubernetes.io/rewrite-target: /
-    # If you want to add basic auth
-    nginx.ingress.kubernetes.io/auth-type: basic
-    nginx.ingress.kubernetes.io/auth-secret: basic-auth
-    nginx.ingress.kubernetes.io/auth-realm: "Authentication Required"
 spec:
-  ingressClassName: nginx # specify your ingress class
   rules:
-  - host: my-mongo.com # change to your domain
+  - host: my-mongo.com  # Must match in your curl Host header
     http:
       paths:
-      - path: /
-        pathType: Prefix
-        backend:
+      - backend:
           service:
             name: mongo-express-service
-            port:
+            port: 
               number: 8081
